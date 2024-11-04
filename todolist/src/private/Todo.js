@@ -34,7 +34,7 @@ const Todo = () => {
       ])
     }else{
       setIndexChk(indexChk =>
-        indexChk.filter(num => num !== e.target.value)
+        indexChk.filter(num => num !== index)
       )
     }
   }
@@ -49,7 +49,6 @@ const Todo = () => {
   }
 
   const removeTodo = () => {
-
     //체크된 배열 새롭게 필터링! 세션스토리지에 담기
     const filteredList = list.filter((_, index)=> !indexChk.includes(index) ) 
     setList(filteredList)
@@ -84,12 +83,12 @@ const Todo = () => {
               setInputValue(e.target.value)
             }}
           />
-          <button 
+          <span 
             type='button'
             onClick={()=>{addTodo()}}
           >
-            등록
-          </button>
+            <i className="fa-solid fa-circle-plus" />
+          </span>
       </div>
           {
             list.map((list,index)=>{
