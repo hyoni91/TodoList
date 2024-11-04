@@ -1,0 +1,46 @@
+.contailner{
+  width: 98vw;
+  height: 99vh;
+  display: flex;
+}
+
+.mainbar{
+  background-color: #FCFAF8;
+  width: 20%;
+}
+
+.content{
+  /* border: 1px solid blue; */
+  width: 80%;
+  padding: 50px;
+}
+
+.menu{
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.private{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.public{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.private > span:hover,
+.public > span:hover{
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.private > span.active{
+  font-weight: bold;
+}
+

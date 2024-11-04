@@ -1,0 +1,45 @@
+
+.addicon > i{
+  color: rgb(199, 37, 37);
+  cursor: pointer;
+}
+
+.addicon > span{
+  color: rgb(138, 138, 138);
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.addicon{
+  margin-top: 35px;
+}
+
+.addTask-div{
+  margin-top: 8px;
+}
+
+.addtask-text{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  font-size: 17px;
+  width: 300px;
+}
+
+.addtask-checkbox{
+  zoom: 1.1;
+}
+
+
+.todo-button > button,
+.addTask-div > button{
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  margin-left: 5px;
+}
+
+.todo-button > button{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
