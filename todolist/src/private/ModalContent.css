@@ -1,0 +1,28 @@
+
+.modal-div{
+  padding: 12px;
+  height: 37vh;
+  border-radius: 10px;
+}
+
+.modal-div > p > input{
+  border: none;
+
+}
+
+.modal-div textarea{
+  width: 27vw;
+  height: 16vh;
+}
+
+.modal-btn{
+margin-top: 15px;
+text-align: center;
+}
+
+.modal-btn button{
+  margin-right: 5px;
+  width: 6vw;
+  padding: 5px;
+  cursor: pointer;
+}

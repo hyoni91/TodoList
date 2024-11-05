@@ -1,8 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Todo from './private/Todo';
 import { useState } from 'react';
+import Task from './private/Task';
+import Schedule from './private/Schedule';
 
 function App() {
   const navigate = useNavigate()
@@ -68,9 +69,9 @@ function App() {
       <div className='content'>
         <Routes>
           <Route path='/pr_list' element={<Todo />}/>
-          <Route path='/pr_ing' element={<p>ing</p>}/>
+          <Route path='/pr_ing' element={<Task />}/>
           <Route path='/pr_done' element={<p>done</p>}/>
-          <Route path='/pr_calendar' element={<p>calendar</p>}/>
+          <Route path='/pr_calendar' element={<Schedule/>}/>
         </Routes>
       </div>
     </div>

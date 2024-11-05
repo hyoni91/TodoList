@@ -6,12 +6,13 @@
 
 .mainbar{
   background-color: #FCFAF8;
-  width: 20%;
+  width: 20vw;
+  height: 100vh;
 }
 
 .content{
   /* border: 1px solid blue; */
-  width: 80%;
+  width: 80vw;
   padding: 50px;
 }
 
