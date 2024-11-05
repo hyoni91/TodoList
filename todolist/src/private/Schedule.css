@@ -3,16 +3,23 @@
   width: 65vw;
 }
 
+.react-calendar{
+  width: 100vw;
+  height: 50vh;
+  border: none;
+  border: 1px solid grey;
+  border-radius: 20px 20px 0 0;
+}
+
 /* 상단 년 월 */
 .react-calendar__navigation {
   background: rgb(255, 152, 152);
   border-bottom: brown;
-  height: 90px;
-  /* width: 550px; */
+  height: 9vh;
   border-radius: 20px 20px 0 0;
   span {
     font-size: 1.6em;
-    font-weight: 600;
+    font-weight:800;
     color: brown;
   }
 }
@@ -25,7 +32,8 @@
 
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-  background-color: lightcoral;
+  color: white;
+  background-color: rgb(255, 152, 152);
   border-radius: 20px 20px 0 0;
 }
 
@@ -34,26 +42,25 @@
 .react-calendar__month-view {
   padding: 12px 10px;
   abbr {
-    color: brown;
+  
     font-size: 1.5em;
     font-weight: 500;
   }
 }
 
 /*요일 */
-
 .react-calendar__month-view__weekdays {
   abbr {
+    color: brown;
     font-size: 1.5em;
     font-weight: 800;
   }
 }
 
 /* 일 (각 타일) */
-
 .react-calendar__tile {
   text-align: center;
-  height: 60px;
+  height: 6vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -70,7 +77,7 @@
 
 /* 현재날짜 */
 .react-calendar__tile--now {
-  background: lightcyan;
+  background: lightgoldenrodyellow;
   border-radius: 14px;
 }
 
@@ -78,7 +85,18 @@
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: lightblue;
-  border-radius: 14px;
+  border-radius: 14px
+}
+
+/* .react-calendar__tile--active:after{
+  font-family: FontAwesome;
+  margin-top: 5px;
+  content: "➕";
+} */
+
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
 }
 
 
@@ -86,17 +104,42 @@
 
 /* 본문 */
 
+
+
 .calendar-flex{
   display: flex;
   justify-content: flex-start;
-  gap: 5px;
-}
+  gap: 50px;
 
+}
 
 .calendar-content, 
 .calendar{
   font-size: 1em;
-  width: 20vw;
-  height: 45vh;
-  border: 1px solid black;
+  width: 23vw;
+  height: 51vh;
+  /* border: 1px solid black; */
+}
+
+.calendar-content i{
+  margin-top: 20px;
+}
+
+.reactCalendar{
+  position: relative;
+}
+
+.calendar-add{
+  position: absolute;
+  top:31vw;
+  left: 41.5vw;
+}
+
+.calendar-add i{
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
+.calendar-add i:hover{
+  color: grey;
 }

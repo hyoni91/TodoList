@@ -1,4 +1,14 @@
+@font-face {
+  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimGeurimilgiTTF-R.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .contailner{
+  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-size: 18px;
   width: 98vw;
   height: 99vh;
   display: flex;
@@ -47,4 +57,10 @@
 
 span{
   cursor: pointer;
+}
+
+
+input , textarea , button{
+  font-family: 'HakgyoansimGeurimilgiTTF-R';
+
 }

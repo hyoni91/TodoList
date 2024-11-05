@@ -1,24 +1,52 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Private.css'
-import './Schedule.css'
 import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css';
 import ReactModal from 'react-modal';
 import ModalContent from './ModalContent';
+import 'react-calendar/dist/Calendar.css';
+import './Schedule.css'
+
 
 const Schedule = () => {
    //날짜 계산
   const today = new Date(); 
+  console.log(today)
   const [value, onChange] = useState(today) 
 
   //모달창 여부 
-  const [modalOpen, setModalOpen] = useState(true)
+  const [modalOpen, setModalOpen] = useState(false)
   //클릭하면 모달창 열고 닫기
   const showModal = () => {
     setModalOpen(!modalOpen)
   }
 
-  console.log(value)
+  const [schList, setSchList] = useState([])
+
+  // 초기 로드 시 로컬 스토리지에서 스케줄 불러오기
+  useEffect(() => {
+  const storedSchedules = JSON.parse(localStorage.getItem('schList')) || [];
+  setSchList(storedSchedules);
+  }, []);
+
+
+  const [sch, setSch] = useState({
+    title : '',
+    content : '',
+    date : value, //초기값
+  })
+
+    // 스케줄 추가 함수
+    const addSchedule = () => {
+      const updatedSchedules = [...schList, { ...sch, date: value.toISOString().split('T')[0] }];
+      setSchList(updatedSchedules);
+      localStorage.setItem('schList', JSON.stringify(updatedSchedules));
+      
+      setSch({title: '', content: '', date:''}); 
+    };
+
+
+    
+
 
   return (
     <div className='calendar-wrap'>
@@ -27,16 +55,42 @@ const Schedule = () => {
       <div className='calendar-flex'>
         <div className='calendar'>
           <Calendar 
+            className='reactCalendar'
             locale="en"
             onChange={onChange}
             value={value}
             showNeighboringMonth={false}
           />
+          <div className='calendar-add'>
+            <span onClick={()=>showModal()}>
+              <i className="fa-solid fa-circle-plus"/>
+            </span>
+          </div>
         </div>
         <div>
-          <div className='calendar-content'>
-            날짜 클릭 시 일정확인 하는 곳
-          </div>
+          {/* toDateSting 은 문자열!
+          객체는 toISOString().split('T')[0]사용해야함... */}
+          { schList.map((sch , i)=>{
+            const formattedValue = value.toISOString().split('T')[0];
+            if(sch.date === formattedValue){
+              return(
+                <div key={i} className='calendar-content'>
+                  <div >
+                    <p>TITLE</p>
+                    <span>{sch.title}</span>
+                    <p>CONTENT</p>
+                    <span>{sch.content}</span>
+                  </div>
+                  <span>
+                  <i className="fa-regular fa-trash-can"/>
+                  </span>
+                </div>
+              )
+            }
+            return null
+          })
+          
+          }
         </div>
       </div>
         { modalOpen?
@@ -57,7 +111,7 @@ const Schedule = () => {
               content: {
                 position: 'absolute',
                 width: '550px',
-                height: '40%',
+                height: '45%',
                 top: '180px',
                 left: '30%',
                 right: '80%',
@@ -71,12 +125,13 @@ const Schedule = () => {
               }
             }}
             >
-              <ModalContent />
+              <ModalContent sch={sch} setSch={setSch} value={value} addSchedule={addSchedule}/>
             </ReactModal>
             
             :
             null
           }
+
     </div>
   )
 }

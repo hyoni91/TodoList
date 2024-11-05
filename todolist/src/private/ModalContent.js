@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './ModalContent.css'
+import { specialCharMap } from '@testing-library/user-event/dist/keyboard'
 
-const ModalContent = () => {
+const ModalContent = ({setSch, sch, value, addSchedule}) => {
+  const addSch = (e) => {
+    setSch({...sch,
+      [e.target.name] : e.target.value,
+      date: value.toISOString().split('T')[0]
+    })
+  }
+
+
+
+  console.log(sch)
+
   return (
     <div className='modal-div'>
-      <p>TITLE: <input type='text'/></p>
-      <p>DATE:</p>
+      <p>TITLE</p>
+      <input name='title' type='text' onChange={(e)=>addSch(e)}/>
       <p>CONTETN</p>
-      <textarea value={1231321321321321}/>
+      <textarea name='content' onChange={(e)=>addSch(e)}/>
       <div className='modal-btn'>
-        <button type='button'>등록</button>
-        <button type='button'>취속</button>
+        <button type='button' onClick={addSchedule}>등록</button>
+        <button type='button'>취소</button>
       </div>
   </div>
   )

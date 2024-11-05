@@ -24,6 +24,7 @@
   border-bottom: 1px solid black;
   font-size: 17px;
   width: 300px;
+  margin-bottom: 10px;
 }
 
 .addtask-checkbox{
@@ -37,6 +38,7 @@
   background-color: white;
   border: 1px solid black;
   margin-left: 5px;
+  font-size: 1em;
 }
 
 .todo-button > button{
@@ -48,3 +50,4 @@
   margin-top: 5px;
   padding: 2px;
 }
+

@@ -1,17 +1,23 @@
 
+
 .modal-div{
   padding: 12px;
-  height: 37vh;
+  height: 30vh;
   border-radius: 10px;
 }
 
-.modal-div > p > input{
+.modal-div > input,
+.modal-div textarea{
   border: none;
-
+  outline: none;
+  width: 26vw;
+  background-color: lightblue;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1em;
 }
 
 .modal-div textarea{
-  width: 27vw;
   height: 16vh;
 }
 
@@ -22,7 +28,13 @@ text-align: center;
 
 .modal-btn button{
   margin-right: 5px;
-  width: 6vw;
-  padding: 5px;
+  width: 5vw;
+  padding: 10px;
   cursor: pointer;
+  border: none;
+  background-color: lightseagreen;
+  color: white;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 800;
 }
