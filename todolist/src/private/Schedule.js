@@ -6,7 +6,6 @@ import ModalContent from './ModalContent';
 import 'react-calendar/dist/Calendar.css';
 import './Schedule.css'
 
-
 const Schedule = () => {
    //날짜 계산
   const today = new Date(); 
@@ -20,32 +19,63 @@ const Schedule = () => {
     setModalOpen(!modalOpen)
   }
 
+  //일정 list
   const [schList, setSchList] = useState([])
-
-  // 초기 로드 시 로컬 스토리지에서 스케줄 불러오기
-  useEffect(() => {
-  const storedSchedules = JSON.parse(localStorage.getItem('schList')) || [];
-  setSchList(storedSchedules);
-  }, []);
-
-
+  const [schDateList, setSchDateList] = useState([])
   const [sch, setSch] = useState({
     title : '',
     content : '',
     date : value, //초기값
   })
 
-    // 스케줄 추가 함수
-    const addSchedule = () => {
-      const updatedSchedules = [...schList, { ...sch, date: value.toISOString().split('T')[0] }];
-      setSchList(updatedSchedules);
-      localStorage.setItem('schList', JSON.stringify(updatedSchedules));
-      
-      setSch({title: '', content: '', date:''}); 
-    };
+  // 초기 로드 시 로컬 스토리지에서 스케줄 불러오기
+  useEffect(() => {
+  const storedSchedules = JSON.parse(localStorage.getItem('schList')) || [];
+  setSchList(storedSchedules);
+  const newDateArr = []
+  storedSchedules.forEach((date,i)=>{
+    newDateArr.push(date.date)
+  })
+  setSchDateList(newDateArr)
+  }, []);
+
+  //date리스트 재랜더링
+  useEffect(()=>{
+    console.log(schDateList)
+  },[schDateList])
 
 
+  // 스케줄 추가 함수
+  const addSchedule = () => {
+    const updatedSchedules = [...schList, { ...sch, date: value.toISOString().split('T')[0] }];
+    setSchList(updatedSchedules);
+    localStorage.setItem('schList', JSON.stringify(updatedSchedules));
     
+    setSch({title: '', content: '', date:''}); 
+  };
+
+  const removeSch = (i) => {
+    const filteredSch = schList.filter((_,index)=> index !== i)
+    localStorage.setItem('schList', JSON.stringify(filteredSch))
+    setSchList(filteredSch)
+  
+  }
+
+  //이벤트가 있는 날짜에 콘텐츠 추가 
+  const titleContet = ({date, view}) => {
+    const dateString = date.toISOString().split('T')[0]
+    if(schDateList.includes(dateString)){
+      console.log(schDateList)
+      return(
+        <span>
+          <i className="fa-regular fa-calendar-check" />
+        </span>
+      )
+    }
+  }
+
+
+  
 
 
   return (
@@ -57,6 +87,7 @@ const Schedule = () => {
           <Calendar 
             className='reactCalendar'
             locale="en"
+            tileContent={titleContet}
             onChange={onChange}
             value={value}
             showNeighboringMonth={false}
@@ -76,14 +107,15 @@ const Schedule = () => {
               return(
                 <div key={i} className='calendar-content'>
                   <div >
-                    <p>TITLE</p>
-                    <span>{sch.title}</span>
+                    <p>TITLE : <span>{sch.title}</span></p>
+                    <p>DATE :<span>{sch.date}</span></p>
                     <p>CONTENT</p>
                     <span>{sch.content}</span>
-                  </div>
-                  <span>
-                  <i className="fa-regular fa-trash-can"/>
+                    <p></p>
+                    <span onClick={()=>{removeSch(i)}}>
+                    <i className="fa-regular fa-trash-can"/>
                   </span>
+                  </div>
                 </div>
               )
             }
@@ -98,6 +130,7 @@ const Schedule = () => {
             isOpen={true}
             ariaHideApp={false}
             onRequestClose={() => {setModalOpen(false)}}
+            
             style={{
               overlay: {
                 position: 'fixed',
@@ -125,7 +158,10 @@ const Schedule = () => {
               }
             }}
             >
-              <ModalContent sch={sch} setSch={setSch} value={value} addSchedule={addSchedule}/>
+              <ModalContent 
+                sch={sch} setSch={setSch} 
+                value={value} addSchedule={addSchedule} 
+                setModalOpen={setModalOpen}/>
             </ReactModal>
             
             :

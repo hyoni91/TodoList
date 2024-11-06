@@ -58,12 +58,12 @@ function App() {
               DONE
             </span>
           </div>
-          <div className='public'>
+          {/* <div className='public'>
             <p>공공아이콘</p>
             <span>계획</span>
             <span>완료</span>
             <span>달력</span>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className='content'>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './ModalContent.css'
 import { specialCharMap } from '@testing-library/user-event/dist/keyboard'
 
-const ModalContent = ({setSch, sch, value, addSchedule}) => {
+const ModalContent = ({setSch, sch, value, addSchedule, setModalOpen}) => {
   const addSch = (e) => {
     setSch({...sch,
       [e.target.name] : e.target.value,
@@ -22,7 +22,7 @@ const ModalContent = ({setSch, sch, value, addSchedule}) => {
       <textarea name='content' onChange={(e)=>addSch(e)}/>
       <div className='modal-btn'>
         <button type='button' onClick={addSchedule}>등록</button>
-        <button type='button'>취소</button>
+        <button type='button' onClick={()=>{setModalOpen(false)}}>취소</button>
       </div>
   </div>
   )

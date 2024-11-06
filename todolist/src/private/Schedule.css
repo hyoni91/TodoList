@@ -109,7 +109,7 @@
 .calendar-flex{
   display: flex;
   justify-content: flex-start;
-  gap: 50px;
+  gap: 20px;
 
 }
 
@@ -117,8 +117,23 @@
 .calendar{
   font-size: 1em;
   width: 23vw;
-  height: 51vh;
+  height: 48vh;
   /* border: 1px solid black; */
+}
+
+.calendar-content{
+  /* background-color: #FCFAF8; */
+  padding: 10px;
+}
+.calendar-content >div > span:nth-child(1){
+  margin-left: 20vw;
+}
+.calendar-content > div{
+  /* background-color: #ffffff; */
+  padding: 25px;
+  border-radius: 25px;
+  height: 22vh;
+  /* font-size: 15px; */
 }
 
 .calendar-content i{
