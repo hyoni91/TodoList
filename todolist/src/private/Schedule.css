@@ -1,6 +1,6 @@
 
 .calendar{
-  width: 65vw;
+  /* width: 65vw; */
 }
 
 .react-calendar{
@@ -140,14 +140,17 @@
   margin-top: 20px;
 }
 
-.reactCalendar{
+
+.calendar-wrap{
   position: relative;
 }
+
+
 
 .calendar-add{
   position: absolute;
   top:31vw;
-  left: 41.5vw;
+  left: 20vw;
 }
 
 .calendar-add i{
