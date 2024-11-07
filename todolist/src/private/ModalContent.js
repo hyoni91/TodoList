@@ -3,6 +3,7 @@ import './ModalContent.css'
 import { specialCharMap } from '@testing-library/user-event/dist/keyboard'
 
 const ModalContent = ({setSch, sch, value, addSchedule, setModalOpen}) => {
+
   const addSch = (e) => {
     setSch({...sch,
       [e.target.name] : e.target.value,

@@ -1,11 +1,7 @@
 
-.calendar{
-  /* width: 65vw; */
-}
-
 .react-calendar{
-  width: 100vw;
-  height: 50vh;
+  width: 90vw;
+  height: 65vh;
   border: none;
   border: 1px solid grey;
   border-radius: 20px 20px 0 0;
@@ -15,7 +11,7 @@
 .react-calendar__navigation {
   background: rgb(255, 152, 152);
   border-bottom: brown;
-  height: 9vh;
+  height: 10vh;
   border-radius: 20px 20px 0 0;
   span {
     font-size: 1.6em;
@@ -60,7 +56,7 @@
 /* 일 (각 타일) */
 .react-calendar__tile {
   text-align: center;
-  height: 6vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -78,6 +74,7 @@
 /* 현재날짜 */
 .react-calendar__tile--now {
   background: lightgoldenrodyellow;
+  color:brown;
   border-radius: 14px;
 }
 
@@ -103,10 +100,9 @@
 
 
 /* 본문 */
-
-
-
 .calendar-flex{
+  width: 80vw;
+  height: 60vh;
   display: flex;
   justify-content: flex-start;
   gap: 20px;
@@ -116,8 +112,8 @@
 .calendar-content, 
 .calendar{
   font-size: 1em;
-  width: 23vw;
-  height: 48vh;
+  width: 40vw;
+  height: 100vh;
   /* border: 1px solid black; */
 }
 
@@ -142,15 +138,14 @@
 
 
 .calendar-wrap{
+  width: 100vw;
   position: relative;
 }
 
-
-
 .calendar-add{
   position: absolute;
-  top:31vw;
-  left: 20vw;
+  top:43vw;
+  left: 36vw;
 }
 
 .calendar-add i{

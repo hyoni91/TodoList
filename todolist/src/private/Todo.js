@@ -67,7 +67,7 @@ const Todo = () => {
   return (
     <div>
       <h2>TODAY</h2>
-      <h4>오늘 할 일을 작성해 보세요.</h4>
+      <h4>What's today?</h4>
       <div>
         <div className='todo-button'>
           <button type='button'>완료</button>

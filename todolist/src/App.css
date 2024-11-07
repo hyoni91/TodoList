@@ -4,7 +4,17 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'PartialSansKR-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
+.private>p{
+  font-family: 'PartialSansKR-Regular';
+  font-size: 16px;
+}
 
 .contailner{
   font-family: 'HakgyoansimGeurimilgiTTF-R';
@@ -63,4 +73,13 @@ span{
 input , textarea , button{
   font-family: 'HakgyoansimGeurimilgiTTF-R';
 
+}
+
+h2{
+  padding: 5px;
+  border-radius: 10px;
+  display: inline-block;
+  /* background-color:  lightcoral; */
+  color:black;
+  font-weight: 900;
 }

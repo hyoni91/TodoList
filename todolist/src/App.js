@@ -4,6 +4,7 @@ import Todo from './private/Todo';
 import { useState } from 'react';
 import Task from './private/Task';
 import Schedule from './private/Schedule';
+import Done from './private/Done';
 
 function App() {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ function App() {
       <div className='mainbar'>
         <div className='menu'>
           <div className='private'>
-            <p>개인아이콘</p>
+            <p>MY SCHEDULER</p>
             <span 
               className={activeTab === 'today' ? 'active' : ''}
               onClick={()=>{
@@ -70,7 +71,7 @@ function App() {
         <Routes>
           <Route path='/pr_list' element={<Todo />}/>
           <Route path='/pr_ing' element={<Task />}/>
-          <Route path='/pr_done' element={<p>done</p>}/>
+          <Route path='/pr_done' element={<Done />}/>
           <Route path='/pr_calendar' element={<Schedule/>}/>
         </Routes>
       </div>

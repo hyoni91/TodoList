@@ -8,9 +8,12 @@ import './Schedule.css'
 
 const Schedule = () => {
    //날짜 계산
-  const today = new Date(); 
-  console.log(today)
-  const [value, onChange] = useState(today) 
+  const date = new Date()
+  // date.setDate(date.getDay() + 1)
+  const today = date
+  
+  const [value, onChange] = useState(date) 
+  console.log(value)
 
   //모달창 여부 
   const [modalOpen, setModalOpen] = useState(false)
@@ -81,7 +84,7 @@ const Schedule = () => {
   return (
     <div className='calendar-wrap'>
       <h2>SCHEDULE</h2>
-      <h4>일정을 입력하고 확인하세요</h4>
+      <h4>Please enter the schedule and check it</h4>
       <div className='calendar-flex'>
         <div className='calendar'>
           <Calendar 

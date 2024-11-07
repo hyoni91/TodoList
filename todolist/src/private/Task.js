@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import './Private.css'
 
 const Task = () => {
-  const [taskList, setTaskList] = useState([])
+  const [taskList, setTaskList] = useState([{
+    completed : false,
+    content : ''
+  }])
   const [inputValue, setInputValue] = useState('')
   const [chks, setChks] = useState([])
   const [indexChk, setIndexChk] = useState([])
-  
   useEffect(()=>{
     const taskedList = window.localStorage.getItem('tasked')
     if(taskedList){
@@ -18,7 +20,7 @@ const Task = () => {
   },[])
 
   const addTask = () =>{
-    const newTasks = [...taskList, inputValue ]
+    const newTasks = [...taskList, {content : inputValue , completed : false} ]
     setTaskList(newTasks)
     window.localStorage.setItem('tasked', JSON.stringify(newTasks))
     setInputValue('')
@@ -34,7 +36,22 @@ const Task = () => {
 
     setIndexChk([])
   }
+
+  const completedTask = () => {
+    // 완료된 항목의 completed 상태를 true로 업데이트
+    const updatedTasks = taskList.map((task, index) => {
+      if (indexChk.includes(index)) {
+        return { ...task, completed: true }; // 선택된 항목을 완료 처리
+      }
+      return task; // 선택되지 않은 항목은 그대로 유지
+    });
   
+    setTaskList(updatedTasks); // 업데이트된 리스트로 상태 설정
+    window.localStorage.setItem('tasked', JSON.stringify(updatedTasks)); // 로컬 스토리지에 업데이트된 리스트 저장
+    setIndexChk([]); // 체크 상태 초기화
+  };
+  
+
   const handleChk = (e,index) => {
     const newChks = [...chks]
     newChks[index] = !newChks[index]
@@ -57,9 +74,9 @@ const Task = () => {
   return (
     <div>
       <h2>TODO LIST</h2>
-      <h4>자신의 목표나 해야할 일을 작성해 보세요.</h4>
+      <h4>Write down your goals or to-dos.</h4>
       <div className='todo-button'>
-          <button type='button'>완료</button>
+          <button type='button' onClick={()=> {completedTask()}}>완료</button>
           <button type='button' onClick={()=>{removeTask()}}>삭제</button>
         </div>
         <div className='addTask-div'>
@@ -81,17 +98,19 @@ const Task = () => {
       </div>
       {
         taskList.map((task,index)=>{
-          return(
-            <div>
-              <input 
-                type='checkbox'
-                checked={chks[index]}
-                value={index}
-                onChange={(e)=>{handleChk(e,index)}}
-              />
-              {task}
-            </div>
-          )
+          if(task.completed === false){
+            return(
+              <div className='task-content'>
+                <input 
+                  type='checkbox'
+                  checked={chks[index]}
+                  value={index}
+                  onChange={(e)=>{handleChk(e,index)}}
+                />
+                {task.content}
+              </div>
+            )
+          }      
         })
       }
     </div>
