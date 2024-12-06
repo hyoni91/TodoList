@@ -15,6 +15,8 @@ const Done = () => {
             <h2>DONE LIST</h2>
             <h4>Congratulations! 🎉</h4>
        {
+
+        taskList? 
             taskList.map((task,index)=>{
               if(task.completed === true){
                 return(
@@ -25,6 +27,8 @@ const Done = () => {
                 )
               }      
             })
+            :
+            <></>
           }
     </div>
     )
