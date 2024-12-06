@@ -26,13 +26,13 @@
 
 .mainbar{
   background-color: #FCFAF8;
-  width: 20vw;
+  width: 25vw;
   height: 100vh;
 }
 
 .content{
   /* border: 1px solid blue; */
-  width: 80vw;
+  width: 72vw;
   padding: 50px;
 }
 
