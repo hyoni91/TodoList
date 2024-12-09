@@ -70,8 +70,8 @@ const Todo = () => {
       <h4>What's today?</h4>
       <div>
         <div className='todo-button'>
-          <button type='button'>완료</button>
-          <button type='button' onClick={()=>{removeTodo()}}>삭제</button>
+          <button type='button'>完了</button>
+          <button type='button' onClick={()=>{removeTodo()}}>削除</button>
         </div>
         <div>
         <div className='addTask-div'>
@@ -79,7 +79,7 @@ const Todo = () => {
             className='addtask-text' 
             value={inputValue}  
             type='text' 
-            placeholder="오늘 할 일을 입력하세요"
+            placeholder="今日のやることを入力してください。"
             onChange={(e)=>{
               setInputValue(e.target.value)
             }}

@@ -76,15 +76,15 @@ const Task = () => {
       <h2>TODO LIST</h2>
       <h4>Write down your goals or to-dos.</h4>
       <div className='todo-button'>
-          <button type='button' onClick={()=> {completedTask()}}>완료</button>
-          <button type='button' onClick={()=>{removeTask()}}>삭제</button>
+          <button type='button' onClick={()=> {completedTask()}}>完了</button>
+          <button type='button' onClick={()=>{removeTask()}}>削除</button>
         </div>
         <div className='addTask-div'>
           <input 
             className='addtask-text' 
             type='text'
             value={inputValue} 
-            placeholder="목표 또는 계획을 입력하세요."
+            placeholder="計画や目標を入力してください。"
             onChange={(e)=>{
               setInputValue(e.target.value)
             }}
