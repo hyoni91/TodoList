@@ -4,15 +4,16 @@ import { specialCharMap } from '@testing-library/user-event/dist/keyboard'
 
 const ModalContent = ({setSch, sch, value, addSchedule, setModalOpen}) => {
 
+
   const addSch = (e) => {
     setSch({...sch,
       [e.target.name] : e.target.value,
-      date: value.toISOString().split('T')[0]
+      date: value.toLocaleDateString('en-CA')
     })
   }
 
 
-
+  console.log(value)
   console.log(sch)
 
   return (

@@ -26,7 +26,7 @@ function App() {
             <span 
               className={activeTab === 'today' ? 'active' : ''}
               onClick={()=>{
-                navigate('/pr_list')
+                navigate('/')
                 handleClick('today')
                 }}>
                 TODAY
@@ -69,7 +69,7 @@ function App() {
       </div>
       <div className='content'>
         <Routes>
-          <Route path='/pr_list' element={<Todo />}/>
+          <Route path='/' element={<Todo />}/>
           <Route path='/pr_ing' element={<Task />}/>
           <Route path='/pr_done' element={<Done />}/>
           <Route path='/pr_calendar' element={<Schedule/>}/>

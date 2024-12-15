@@ -9,7 +9,7 @@ import './Schedule.css'
 const Schedule = () => {
    //날짜 계산
   const date = new Date()
-  // date.setDate(date.getDay() + 1)
+  date.setDate(date.getDay() + 1)
   const today = date
   
   const [value, onChange] = useState(date) 
@@ -28,7 +28,7 @@ const Schedule = () => {
   const [sch, setSch] = useState({
     title : '',
     content : '',
-    date : value, //초기값
+    date : value //초기값
   })
 
   // 초기 로드 시 로컬 스토리지에서 스케줄 불러오기
@@ -50,7 +50,7 @@ const Schedule = () => {
 
   // 스케줄 추가 함수
   const addSchedule = () => {
-    const updatedSchedules = [...schList, { ...sch, date: value.toISOString().split('T')[0] }];
+    const updatedSchedules = [...schList, { ...sch }];
     setSchList(updatedSchedules);
     localStorage.setItem('schList', JSON.stringify(updatedSchedules));
     
@@ -66,7 +66,7 @@ const Schedule = () => {
 
   //이벤트가 있는 날짜에 콘텐츠 추가 
   const titleContet = ({date, view}) => {
-    const dateString = date.toISOString().split('T')[0]
+    const dateString = date.toLocaleDateString('en-CA')
     if(schDateList.includes(dateString)){
       console.log(schDateList)
       return(
@@ -105,7 +105,7 @@ const Schedule = () => {
           {/* toDateSting 은 문자열!
           객체는 toISOString().split('T')[0]사용해야함... */}
           { schList.map((sch , i)=>{
-            const formattedValue = value.toISOString().split('T')[0];
+            const formattedValue = value.toLocaleDateString('en-CA');
             if(sch.date === formattedValue){
               return(
                 <div key={i} className='calendar-content'>
