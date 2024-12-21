@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Private.css'
 
 const Todo = () => {
+
   const [list, setList] = useState([])
   const [inputValue, setInputValue] = useState('')
 
@@ -39,7 +40,7 @@ const Todo = () => {
     }
   }
 
-  console.log(indexChk)
+
 
   const addTodo = () => {
     const newTodos = [...list, inputValue]
@@ -49,6 +50,7 @@ const Todo = () => {
   }
 
   const removeTodo = () => {
+    alert('よくやりました😘')
     //체크된 배열 새롭게 필터링! 세션스토리지에 담기
     const filteredList = list.filter((_, index)=> !indexChk.includes(index) ) 
     setList(filteredList)
@@ -63,15 +65,19 @@ const Todo = () => {
 
   }
 
-  console.log(chks)
+
+
+  
   return (
     <div>
       <h2>TODAY</h2>
       <h4>What's today?</h4>
       <div>
         <div className='todo-button'>
-          <button type='button'>完了</button>
-          <button type='button' onClick={()=>{removeTodo()}}>削除</button>
+          {/* <button type='button' onClick={()=>{alert('現在工事中です。')}}>完了</button> */}
+          <button type='button' onClick={()=>{removeTodo()}}
+            >完了
+          </button>
         </div>
         <div>
         <div className='addTask-div'>
@@ -79,7 +85,7 @@ const Todo = () => {
             className='addtask-text' 
             value={inputValue}  
             type='text' 
-            placeholder="今日のやることを入力してください。"
+            placeholder="メモや今日やることを入力ください。"
             onChange={(e)=>{
               setInputValue(e.target.value)
             }}

@@ -10,10 +10,13 @@ const Done = () => {
      setTaskList(completedTask)
     },[])
 
+    
+
     return(
         <div>
             <h2>DONE LIST</h2>
             <h4>Congratulations! 🎉</h4>
+            <h5>計画したことや目標の達成をおめでとう</h5>
        {
 
         taskList? 
@@ -21,8 +24,8 @@ const Done = () => {
               if(task.completed === true){
                 return(
                   <div className='task-content'>
-                    {task.content}
-                    <span className="replyicon"><i className="fa-solid fa-reply" /></span>
+                    <><i className="fa-regular fa-circle-check"/> </>{task.content}
+                    {/* <span className="replyicon" onClick={()=>{alert('現在工事中です。')}}><i className="fa-solid fa-reply" /></span> */}
                   </div>
                 )
               }      

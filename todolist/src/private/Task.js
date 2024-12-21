@@ -41,6 +41,7 @@ const Task = () => {
     // 완료된 항목의 completed 상태를 true로 업데이트
     const updatedTasks = taskList.map((task, index) => {
       if (indexChk.includes(index)) {
+        alert('よくやりました😍')
         return { ...task, completed: true }; // 선택된 항목을 완료 처리
       }
       return task; // 선택되지 않은 항목은 그대로 유지

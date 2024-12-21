@@ -37,9 +37,15 @@
   cursor: pointer;
   background-color: white;
   border: 1px solid black;
+  /* border: none; */
   margin-left: 5px;
   font-size: 1em;
 }
+.todo-button > button:hover,
+.addTask-div > button:hover{
+  background-color: #FCFAF8;
+}
+
 
 .todo-button > button{
   margin-top: 15px;
