@@ -22,11 +22,11 @@ function App() {
       <div className='mainbar'>
         <div className='menu'>
           <div className='private'>
-            <p onClick={()=>{navigate('/')}}>MY SCHEDULER</p>
+            <p onClick={()=>{navigate('/TodoList/')}}>MY SCHEDULER</p>
             <span 
               className={activeTab === 'today' ? 'active' : ''}
               onClick={()=>{
-                navigate('/')
+                navigate('/TodoList/')
                 handleClick('today')
                 }}>
                 TODAY
@@ -69,7 +69,7 @@ function App() {
       </div>
       <div className='content'>
         <Routes>
-          <Route path='/' element={<Todo />}/>
+          <Route path='/TodoList/' element={<Todo />}/>
           <Route path='/pr_ing' element={<Task />}/>
           <Route path='/pr_done' element={<Done />}/>
           <Route path='/pr_calendar' element={<Schedule/>}/>
