@@ -3,8 +3,8 @@ import './Private.css'
 
 const Task = () => {
   const [taskList, setTaskList] = useState([{
-    completed : false,
-    content : ''
+    // completed : false,
+    // content : ''
   }])
   const [inputValue, setInputValue] = useState('')
   const [chks, setChks] = useState([])
