@@ -1,3 +1,7 @@
+.private > p:first-child{
+  cursor: pointer;
+}
+
 
 .addicon > i{
   color: rgb(199, 37, 37);

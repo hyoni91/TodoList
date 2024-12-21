@@ -22,7 +22,7 @@ function App() {
       <div className='mainbar'>
         <div className='menu'>
           <div className='private'>
-            <p>MY SCHEDULER</p>
+            <p onClick={()=>{navigate('/')}}>MY SCHEDULER</p>
             <span 
               className={activeTab === 'today' ? 'active' : ''}
               onClick={()=>{
