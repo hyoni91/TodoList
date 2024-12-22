@@ -9,6 +9,7 @@ const Task = () => {
   const [inputValue, setInputValue] = useState('')
   const [chks, setChks] = useState([])
   const [indexChk, setIndexChk] = useState([])
+
   useEffect(()=>{
     const taskedList = window.localStorage.getItem('tasked')
     if(taskedList){
@@ -27,6 +28,10 @@ const Task = () => {
   }
 
   const removeTask = () => {
+    if(indexChk.length == 0){
+      alert('削除する項目を選んでください')
+      return;
+    }
     const filteredList = taskList.filter((_,index)=> !indexChk.includes(index))
     setTaskList(filteredList)
     window.localStorage.setItem('tasked', JSON.stringify(filteredList))
@@ -38,6 +43,10 @@ const Task = () => {
   }
 
   const completedTask = () => {
+    if(indexChk.length == 0){
+      alert('完了した項目を選んでください')
+      return;
+    }
     // 완료된 항목의 completed 상태를 true로 업데이트
     const updatedTasks = taskList.map((task, index) => {
       if (indexChk.includes(index)) {

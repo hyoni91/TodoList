@@ -49,8 +49,11 @@ const Todo = () => {
     window.sessionStorage.setItem('list',JSON.stringify(newTodos));
     setInputValue('')
   }
-
   const removeTodo = () => {
+    if(indexChk.length == 0){
+      alert('削除する項目を選んでください')
+      return;
+    }
     alert('よくやりました😘')
 
     //체크된 배열 새롭게 필터링! 세션스토리지에 담기
@@ -61,6 +64,7 @@ const Todo = () => {
     //체크박스 상태 배열 업데이트 
     const filteredChks  = chks.filter((_, index)=> !indexChk.includes(index) ) 
     setChks(filteredChks)
+    setIndexChk([])
 
   }
 
