@@ -10,6 +10,7 @@ const Todo = () => {
   const [chks, setChks] = useState([])
   const [indexChk, setIndexChk] = useState([])
 
+
   //마운트시 세션스토리지의 데이터 불러오기 
   useEffect(()=>{
     const storedList = window.sessionStorage.getItem('list');
@@ -51,6 +52,7 @@ const Todo = () => {
 
   const removeTodo = () => {
     alert('よくやりました😘')
+
     //체크된 배열 새롭게 필터링! 세션스토리지에 담기
     const filteredList = list.filter((_, index)=> !indexChk.includes(index) ) 
     setList(filteredList)
@@ -60,12 +62,7 @@ const Todo = () => {
     const filteredChks  = chks.filter((_, index)=> !indexChk.includes(index) ) 
     setChks(filteredChks)
 
-    //선택된 인덱스 초기화
-    setIndexChk([])
-
   }
-
-
 
   
   return (
@@ -74,9 +71,8 @@ const Todo = () => {
       <h4>What's today?</h4>
       <div>
         <div className='todo-button'>
-          {/* <button type='button' onClick={()=>{alert('現在工事中です。')}}>完了</button> */}
           <button type='button' onClick={()=>{removeTodo()}}
-            >完了
+            >削除
           </button>
         </div>
         <div>
@@ -107,7 +103,13 @@ const Todo = () => {
                     checked={chks[index]}
                     onChange={(e)=>{handleChk(e,index)}}
                   />
-                  {list}
+                   <span 
+                    style={{
+                      textDecoration: chks[index] ? 'line-through' : 'none',
+                    }}
+                  >
+                    {list}
+                  </span>
                 </div>
               )
             })
