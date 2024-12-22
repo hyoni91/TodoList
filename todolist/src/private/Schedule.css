@@ -1,69 +1,66 @@
 
-.react-calendar{
+
+/* 기본 스타일 */
+.react-calendar {
   width: 35vw;
   height: 60vh;
-  border: none;
+  max-width: 600px;  /* 최대 너비 제한 */
+  max-height: 700px; /* 최대 높이 제한 */
   border: 1px solid grey;
-  /* border-radius: 20px 20px 0 0; */
 }
 
-/* 상단 년 월 */
 .react-calendar__navigation {
   background: rgb(255, 152, 152);
   border-bottom: brown;
   height: 8vh;
-  /* border-radius: 20px 20px 0 0; */
-  span {
-    font-size: 1.5em;
-    font-weight:800;
-    color: brown;
-  }
 }
 
-/* ?? */
+.react-calendar__navigation span {
+  font-size: 1.5em;
+  font-weight: 800;
+  color: brown;
+}
+
+/* 비활성화된 버튼 스타일 */
 .react-calendar__navigation button:disabled {
   background: lightcoral;
-  /* border-radius: 20px 20px 0 0; */
 }
 
+/* 버튼 hover 및 focus 스타일 */
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
   color: white;
   background-color: rgb(255, 152, 152);
-  /* border-radius: 20px 20px 0 0; */
 }
 
-
-/* 월 달력 네비게이션 제외 */
+/* 달력 월 보기 스타일 */
 .react-calendar__month-view {
   padding: 12px 10px;
-  abbr {
-  
-    font-size: 1.1em;
-    font-weight: 500;
-  }
 }
 
-/*요일 */
-.react-calendar__month-view__weekdays {
-  abbr {
-    color: brown;
-    font-size: 1.3em;
-    font-weight: 800;
-  }
+.react-calendar__month-view abbr {
+  font-size: 1.1em;
+  font-weight: 500;
 }
 
-/* 일 (각 타일) */
+/* 요일 스타일 */
+.react-calendar__month-view__weekdays abbr {
+  color: brown;
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+/* 일 타일 스타일 */
 .react-calendar__tile {
   text-align: center;
-  height:7vh;
+  height: 7vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 
-/*hover, focus, 선택됐을 시 */
+/* 타일 hover, focus 및 활성화 스타일 */
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus,
 .react-calendar__tile--active {
@@ -71,88 +68,124 @@
   border-radius: 14px;
 }
 
-/* 현재날짜 */
+/* 현재 날짜 스타일 */
 .react-calendar__tile--now {
   background: lightgoldenrodyellow;
-  color:brown;
+  color: brown;
   border-radius: 14px;
 }
 
-/*hover, focus 시 */
+/* 현재 날짜 hover, focus 스타일 */
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: lightblue;
-  border-radius: 14px
+  border-radius: 14px;
 }
 
-/* .react-calendar__tile--active:after{
-  font-family: FontAwesome;
-  margin-top: 5px;
-  content: "➕";
-} */
-
-
-.react-calendar__month-view__weekdays__weekday abbr {
-  text-decoration: none;
-}
-
-
-
-
-/* 본문 */
-.calendar-flex{
+/* 본문 레이아웃 */
+.calendar-flex {
   width: 80vw;
   height: 60vh;
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-
 }
 
-.calendar-content, 
-.calendar{
+/* 캘린더 내용 */
+.calendar-content,
+.calendar {
   font-size: 1em;
   width: 40vw;
   height: 25vh;
-  /* border: 1px solid black; */
-}
-
-.calendar-content{
-  /* background-color: #FCFAF8; */
   padding: 10px;
 }
-.calendar-content >div > span:nth-child(1){
-  margin-left: 20vw;
-}
-.calendar-content > div{
-  /* background-color: #ffffff; */
-  padding: 25px;
+
+.calendar-content {
+  background-color: #FCFAF8;
   border-radius: 25px;
+  padding: 25px;
   height: 22vh;
-  /* font-size: 15px; */
 }
 
-.calendar-content i{
+.calendar-content i {
   margin-top: 20px;
 }
 
-
-.calendar-wrap{
+/* 캘린더 영역 */
+.calendar-wrap {
   width: 100vw;
   position: relative;
 }
 
-.calendar-add{
+/* 캘린더 추가 버튼 */
+.calendar-add {
   position: absolute;
-  top:40vw;
-  left: 31vw;
+  top: 93%;
+  left: 33%;
+  transform: translate(-50%, -50%);
 }
 
-.calendar-add i{
-  font-size: 1.6em;
+.calendar-add i {
+  font-size: 2em;
   cursor: pointer;
 }
 
-.calendar-add i:hover{
+.calendar-add i:hover {
   color: grey;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 768px) {
+  .react-calendar {
+    width: 80vw;
+    height: 50vh;
+  }
+
+  .calendar-flex {
+    flex-direction: column;
+    gap: 10px;
+    width: 90vw;
+  }
+
+  .calendar-content,
+  .calendar {
+    width: 80vw;
+    height: auto;
+  }
+
+  .calendar-add {
+    top: 30%;
+    left: 50%;
+  }
+
+  .calendar-add i {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .react-calendar {
+    width: 90vw;
+    height: 40vh;
+  }
+
+  .calendar-flex {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .calendar-content,
+  .calendar {
+    width: 90vw;
+    height: auto;
+  }
+
+  .calendar-add {
+    top: 93%;
+    left: 33%;
+  }
+
+  .calendar-add i {
+    font-size: 1.5em;
+  }
 }
