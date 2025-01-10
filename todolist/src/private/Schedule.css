@@ -4,8 +4,8 @@
 .react-calendar {
   width: 35vw;
   height: 60vh;
-  max-width: 600px;  /* 최대 너비 제한 */
-  max-height: 700px; /* 최대 높이 제한 */
+  max-width: 1250px;  /* 최대 너비 제한 */
+  max-height: 1000px; /* 최대 높이 제한 */
   border: 1px solid grey;
 }
 
@@ -134,33 +134,36 @@
   color: grey;
 }
 
+
 /* 반응형 스타일 */
 @media screen and (max-width: 768px) {
   .react-calendar {
-    width: 80vw;
-    height: 50vh;
-  }
+    width: 100%;
+    height: 99%;
+    overflow: auto;
 
+  }
   .calendar-flex {
     flex-direction: column;
     gap: 10px;
-    width: 90vw;
+    width: 100%;
   }
 
   .calendar-content,
   .calendar {
-    width: 80vw;
-    height: auto;
+    width: 100%;
+    height: 99%;
   }
 
   .calendar-add {
-    top: 30%;
-    left: 50%;
+    top: 95%;
+    left: 95%;
   }
 
   .calendar-add i {
-    font-size: 1.8em;
+    font-size: 1em;
   }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -182,10 +185,10 @@
 
   .calendar-add {
     top: 93%;
-    left: 33%;
+    left: 83%;
   }
 
   .calendar-add i {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }

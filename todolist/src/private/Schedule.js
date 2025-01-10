@@ -133,7 +133,6 @@ const Schedule = () => {
             isOpen={true}
             ariaHideApp={false}
             onRequestClose={() => {setModalOpen(false)}}
-            
             style={{
               overlay: {
                 position: 'fixed',
@@ -146,11 +145,11 @@ const Schedule = () => {
               },
               content: {
                 position: 'absolute',
-                width: '550px',
-                height: '45%',
-                top: '180px',
-                left: '30%',
-                right: '80%',
+                width: '45%',
+                height: '50%',
+                top: '15%',
+                left: '35%',
+                right: '50%',
                 bottom: '50%',
                 border: '1px solid #ccc',
                 background: '#fff',

@@ -2,15 +2,19 @@
 
 .modal-div{
   padding: 12px;
-  height: 30vh;
+  width: 95%;
+  height: 90%;
+  margin: auto;
   border-radius: 10px;
+  overflow: auto;
 }
 
 .modal-div > input,
 .modal-div textarea{
   border: none;
   outline: none;
-  width: 35vw;
+  width: 95%;
+  height: auto;
   background-color: lightblue;
   border-radius: 10px;
   padding: 12px;
@@ -18,17 +22,18 @@
 }
 
 .modal-div textarea{
-  height: 16vh;
+  height: 40%;
 }
 
 .modal-btn{
 margin-top: 15px;
 text-align: center;
+font-size: 1em;
 }
 
 .modal-btn button{
   margin-right: 5px;
-  width: 5vw;
+  width: 20%;
   padding: 10px;
   cursor: pointer;
   border: none;
@@ -37,4 +42,17 @@ text-align: center;
   border-radius: 10px;
   font-size: 1em;
   font-weight: 800;
+}
+
+@media screen and (max-width: 768px) {
+
+.modal-div textarea{
+  height: 10%;
+}
+
+.modal-btn button{
+  width: 25%;
+}
+
+
 }
