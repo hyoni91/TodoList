@@ -1,0 +1,51 @@
+
+.todo-wrap{
+    padding: 10px;
+    /* border: 1px solid black; */
+}
+
+
+
+.todo-wrap h4{
+    font-size: 1em;
+    margin: 15px 0px;
+}
+
+.addTask-div{
+    /* border: 1px solid blue; */
+    width: 80%;
+}
+
+.addTask-div > input{
+    width: 90%;
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 60px;
+    
+}
+
+.addTask-div > button{
+    margin-left: 10px;
+    border: 1px solid lightgray;
+}
+
+.today-content{
+    padding: 5px;
+    font-size: 1em;
+}
+
+.today-content > span{
+    margin-left: 10px;
+    margin-bottom:5px;
+    width: 70%;
+    display: inline-block;
+    border-bottom: 1px solid darkgray;
+    
+}
+
+.todo-button > button{
+    margin-top: 35px;
+    margin-right: 5px;
+
+}

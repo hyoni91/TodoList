@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './Private.css'
+import './Todo.css'
 
 const Task = () => {
   const [taskList, setTaskList] = useState([{
@@ -79,16 +79,23 @@ const Task = () => {
     }
   }
 
+  function isShowBtn(){
+    if(taskList.length != 0 &&taskList.some(task => task.completed === false)){
+      return(
+        <>
+          <button type="button" class="btn btn-success" onClick={()=> {completedTask()}}>Done</button>
+          <button type="button" class="btn btn-danger" onClick={()=>{removeTask()}}>Cancle</button>
+        </>
+      )
+    }
+  }
+
 
 
   return (
-    <div>
-      <h2>TODO LIST</h2>
+    <div className='todo-wrap'>
+      <h2><i className="fa-solid fa-hourglass-end" /> TODO LIST</h2>
       <h4>Write down your goals or to-dos.</h4>
-      <div className='todo-button'>
-          <button type='button' onClick={()=> {completedTask()}}>完了</button>
-          <button type='button' onClick={()=>{removeTask()}}>削除</button>
-        </div>
         <div className='addTask-div'>
           <input 
             className='addtask-text' 
@@ -99,31 +106,32 @@ const Task = () => {
               setInputValue(e.target.value)
             }}
           />
-          <span 
-            type='button'
-            onClick={()=>{addTask()}}
-          >
-            <i className="fa-solid fa-circle-plus" />
-          </span>
+          <button type="button" className="btn btn-light" onClick={()=>{addTask()}}> 
+              Add 
+          </button> 
       </div>
       {
         taskList.map((task,index)=>{
           if(task.completed === false){
             return(
-              <div className='task-content'>
+              <div className='today-content'>
                 <input 
                   type='checkbox'
                   checked={chks[index]}
                   value={index}
                   onChange={(e)=>{handleChk(e,index)}}
                 />
-                {task.content}
+                <span>{task.content}</span>
               </div>
             )
           }      
         })
       }
+      <div className='todo-button'>
+        {isShowBtn()}
+      </div>
     </div>
+    
   )
 }
 

@@ -1,4 +1,4 @@
-.private > p:first-child{
+/* .private > p:first-child{
   cursor: pointer;
 }
 
@@ -41,7 +41,6 @@
   cursor: pointer;
   background-color: white;
   border: 1px solid black;
-  /* border: none; */
   margin-left: 5px;
   font-size: 1em;
 }
@@ -67,4 +66,4 @@
 
 .replyicon {
   margin-left: 15px;
-}
+} */

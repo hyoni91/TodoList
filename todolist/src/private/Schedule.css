@@ -6,11 +6,11 @@
   height: 60vh;
   max-width: 1250px;  /* 최대 너비 제한 */
   max-height: 1000px; /* 최대 높이 제한 */
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
 }
 
 .react-calendar__navigation {
-  background: rgb(255, 152, 152);
+  background: brown;
   border-bottom: brown;
   height: 8vh;
 }
@@ -18,19 +18,20 @@
 .react-calendar__navigation span {
   font-size: 1.5em;
   font-weight: 800;
-  color: brown;
+  color:  white;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 /* 비활성화된 버튼 스타일 */
 .react-calendar__navigation button:disabled {
-  background: lightcoral;
+  background: brown;
 }
 
 /* 버튼 hover 및 focus 스타일 */
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
   color: white;
-  background-color: rgb(255, 152, 152);
+  background-color: brown;
 }
 
 /* 달력 월 보기 스타일 */
@@ -84,8 +85,7 @@
 
 /* 본문 레이아웃 */
 .calendar-flex {
-  width: 80vw;
-  height: 60vh;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   gap: 20px;
@@ -95,8 +95,6 @@
 .calendar-content,
 .calendar {
   font-size: 1em;
-  width: 40vw;
-  height: 25vh;
   padding: 10px;
 }
 
@@ -113,25 +111,55 @@
 
 /* 캘린더 영역 */
 .calendar-wrap {
-  width: 100vw;
+  width: 100%;
   position: relative;
 }
 
-/* 캘린더 추가 버튼 */
-.calendar-add {
-  position: absolute;
-  top: 93%;
-  left: 33%;
-  transform: translate(-50%, -50%);
+.calendar-wrap > h4{
+  margin-bottom: 80px;
 }
 
-.calendar-add i {
-  font-size: 2em;
-  cursor: pointer;
+.calendar-add-div{
+  width: 50%;
+  margin: auto;
 }
 
-.calendar-add i:hover {
-  color: grey;
+.calendar-add-div > input,
+.calendar-add-div > textarea{
+  width: 80%;
+  padding: 5px;
+  border: 1px solid lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 10px;
+}
+
+.calendar-add-div > textarea{
+  height: 20vh;
+}
+
+.calendar-add-div > p{
+  font-size: 1.1em;
+  margin: 0px;
+  padding: 0px;
+}
+
+.card{
+  width: 100%;
+  margin: auto;
+  margin:50px 0px;  
+}
+
+.card-header{
+  background-color: #FCFAF8;
+  font-size: 1.3em;
+}
+
+.card-body{
+
+}
+
+.card-btn{
+  text-align: right;
 }
 
 
@@ -146,7 +174,7 @@
   .calendar-flex {
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    
   }
 
   .calendar-content,
@@ -183,12 +211,4 @@
     height: auto;
   }
 
-  .calendar-add {
-    top: 93%;
-    left: 83%;
-  }
-
-  .calendar-add i {
-    font-size: 1em;
-  }
 }

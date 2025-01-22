@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import './Private.css'
+// import './Private.css'
+import './Todo.css'
 
 const Todo = () => {
 
@@ -70,15 +71,11 @@ const Todo = () => {
 
   
   return (
-    <div>
-      <h2>TODAY</h2>
+    <div className='todo-wrap'>
+      <h2><i className="fa-regular fa-square-check" /> TODAY</h2>
       <h4>What's today?</h4>
       <div>
-        <div className='todo-button'>
-          <button type='button' onClick={()=>{removeTodo()}}
-            >削除
-          </button>
-        </div>
+      
         <div>
         <div className='addTask-div'>
           <input 
@@ -90,13 +87,10 @@ const Todo = () => {
               setInputValue(e.target.value)
             }}
           />
-          <span 
-            type='button'
-            onClick={()=>{addTodo()}}
-          >
-            <i className="fa-solid fa-circle-plus" />
-          </span>
-      </div>
+            <button type="button" className="btn btn-light" onClick={()=>{addTodo()}}> 
+              Add 
+            </button>
+        </div>
           {
             list.map((list,index)=>{
               return(
@@ -106,17 +100,26 @@ const Todo = () => {
                     value={index}
                     checked={chks[index]}
                     onChange={(e)=>{handleChk(e,index)}}
-                  />
+                  /> 
                    <span 
                     style={{
                       textDecoration: chks[index] ? 'line-through' : 'none',
                     }}
                   >
-                    {list}
+                     {list}
                   </span>
                 </div>
               )
             })
+          }
+        </div>
+        <div className='todo-button'>
+          {
+            list.length == 0 ?
+            null
+            :
+            <button type="button" class="btn btn-success" onClick={()=>{removeTodo()}}>Done</button>
+
           }
         </div>
       </div>

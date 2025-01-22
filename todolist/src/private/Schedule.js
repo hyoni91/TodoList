@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Private.css'
 import Calendar from 'react-calendar'
-import ReactModal from 'react-modal';
-import ModalContent from './ModalContent';
 import 'react-calendar/dist/Calendar.css';
 import './Schedule.css'
 
@@ -77,13 +75,22 @@ const Schedule = () => {
     }
   }
 
+  const addSch = (e) => {
+    setSch({...sch,
+      [e.target.name] : e.target.value,
+      date: value.toLocaleDateString('en-CA')
+    })
+  }
+
+
 
   
 
 
   return (
+  <div className='todo-wrap'>
     <div className='calendar-wrap'>
-      <h2>SCHEDULE</h2>
+      <h2><i className="fa-solid fa-calendar-day" /> SCHEDULE</h2>
       <h4>Please enter the schedule and check it</h4>
       <div className='calendar-flex'>
         <div className='calendar'>
@@ -95,29 +102,47 @@ const Schedule = () => {
             value={value}
             showNeighboringMonth={false}
           />
-          <div className='calendar-add'>
-            <span onClick={()=>showModal()}>
-              <i className="fa-solid fa-circle-plus"/>
-            </span>
+        </div>
+          <div className='calendar-add-div'>
+          {/* <h4>New Schedule</h4> */}
+          <p>DATE</p>
+          <input type='text' value={value.toLocaleDateString('en-CA')} readOnly/>
+          <p>TITLE</p>
+          <input name='title' type='text' onChange={(e)=>addSch(e)}/>
+          <p>CONTETN</p>
+          <textarea name='content' onChange={(e)=>addSch(e)}/>
+          <div className='sch-btn'>
+            <button type="button" class="btn btn-success" onClick={()=> {addSchedule()}}>Save</button>
           </div>
         </div>
-        <div>
-          {/* toDateSting 은 문자열!
-          객체는 toISOString().split('T')[0]사용해야함... */}
-          { schList.map((sch , i)=>{
+      </div>
+      <div className="card">
+        { schList.map((sch , i)=>{
+              const formattedValue = value.toLocaleDateString('en-CA');
+              if(sch.date === formattedValue){
+                return(
+                  <div key={i} className='card-header'>
+                      {sch.title} 
+                  </div>
+                  
+                )
+              }
+              return null
+            })
+            
+          }
+      { schList.map((sch , i)=>{
             const formattedValue = value.toLocaleDateString('en-CA');
             if(sch.date === formattedValue){
               return(
-                <div key={i} className='calendar-content'>
+                <div key={i} className='card-body'>
                   <div >
-                    <p>TITLE : <span>{sch.title}</span></p>
-                    <p>DATE :<span>{sch.date}</span></p>
-                    <p>CONTENT</p>
-                    <span>{sch.content}</span>
-                    <p></p>
-                    <span onClick={()=>{removeSch(i)}}>
-                    <i className="fa-regular fa-trash-can"/>
-                  </span>
+                    <p><i class="fa-regular fa-clock"></i> {sch.date}</p>
+                    <p><i class="fa-solid fa-pencil"></i> {sch.content}</p>
+                   
+                  </div>
+                  <div className='card-btn'>
+                    <button type="button" class="btn btn-danger" onClick={()=>{removeSch(i)}}>Delete</button>
                   </div>
                 </div>
               )
@@ -126,51 +151,10 @@ const Schedule = () => {
           })
           
           }
-        </div>
-      </div>
-        { modalOpen?
-          <ReactModal
-            isOpen={true}
-            ariaHideApp={false}
-            onRequestClose={() => {setModalOpen(false)}}
-            style={{
-              overlay: {
-                position: 'fixed',
-                borderRadius : 10,
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(0,0,0, 0.6)'
-              },
-              content: {
-                position: 'absolute',
-                width: '45%',
-                height: '50%',
-                top: '15%',
-                left: '35%',
-                right: '50%',
-                bottom: '50%',
-                border: '1px solid #ccc',
-                background: '#fff',
-                overflow: 'auto',
-                WebkitOverflowScrolling: 'touch',
-                borderRadius: '4px',
-                outline: 'none',
-              }
-            }}
-            >
-              <ModalContent 
-                sch={sch} setSch={setSch} 
-                value={value} addSchedule={addSchedule} 
-                setModalOpen={setModalOpen}/>
-            </ReactModal>
-            
-            :
-            null
-          }
-
     </div>
+    </div>
+  </div>  
+    
   )
 }
 
