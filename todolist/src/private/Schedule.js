@@ -146,7 +146,7 @@ const Schedule = () => {
                    
                   </div>
                   <div className='card-btn'>
-                    <button type="button" class="btn btn-danger" onClick={()=>{removeSch(i)}}>Delete</button>
+                    <button type="button" class="btn btn-secondary" onClick={()=>{removeSch(i)}}>Delete</button>
                   </div>
                 </div>
               )

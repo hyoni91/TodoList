@@ -84,7 +84,7 @@ const Task = () => {
       return(
         <>
           <button type="button" class="btn btn-success" onClick={()=> {completedTask()}}>Done</button>
-          <button type="button" class="btn btn-danger" onClick={()=>{removeTask()}}>Cancle</button>
+          <button type="button" class="btn btn-secondary" onClick={()=>{removeTask()}}>Cancle</button>
         </>
       )
     }
