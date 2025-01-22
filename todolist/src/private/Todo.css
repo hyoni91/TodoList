@@ -111,19 +111,22 @@
 
     .addTask-div > input{
         font-size: 0.8em;
-        width: 60%;
+        width: 90%;
+        margin-bottom: 10px;
     }
 
     .addTask-div > button{
         width: 20%;
-        margin-left: 10px;
+        margin-left: 3px;
         border: 1px solid lightgray;
         font-size: 0.6em;
+        margin-bottom: 15px;
     }
 
     .todo-button > button{
         width: 50px;
         font-size: 0.8em;
+        margin-top: 15px;
     } 
 
 }
