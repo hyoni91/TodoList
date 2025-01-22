@@ -3,7 +3,7 @@
 /* 기본 스타일 */
 .react-calendar {
   width: 35vw;
-  height: 60vh;
+  height: 70vh;
   max-width: 1250px;  /* 최대 너비 제한 */
   max-height: 1000px; /* 최대 높이 제한 */
   border: 1px solid lightgrey;
@@ -12,12 +12,12 @@
 .react-calendar__navigation {
   background: brown;
   border-bottom: brown;
-  height: 8vh;
+  height: 7vh;
 }
 
 .react-calendar__navigation span {
-  font-size: 1.5em;
-  font-weight: 800;
+  font-size: 1.3em;
+  font-weight: 600;
   color:  white;
   font-family:Verdana, Geneva, Tahoma, sans-serif
 }
@@ -54,7 +54,7 @@
 /* 일 타일 스타일 */
 .react-calendar__tile {
   text-align: center;
-  height: 7vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -113,6 +113,11 @@
 .calendar-wrap {
   width: 100%;
   position: relative;
+}
+
+.calendar-wrap > h2{
+  font-weight: 600;
+
 }
 
 .calendar-wrap > h4{

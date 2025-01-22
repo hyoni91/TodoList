@@ -4,6 +4,9 @@
     /* border: 1px solid black; */
 }
 
+.todo-wrap > h2{
+    font-weight: 600;
+}
 
 
 .todo-wrap h4{
