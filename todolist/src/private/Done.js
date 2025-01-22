@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import './Todo.css'
 
 const Done = () => {
 
@@ -13,26 +14,30 @@ const Done = () => {
     
 
     return(
-        <div>
-            <h2>DONE LIST</h2>
+        <div className="todo-wrap">
+            <h2><i class="fa-solid fa-rainbow"></i> DONE LIST</h2>
             <h4>Congratulations! 🎉</h4>
-            <h5>計画したことや目標の達成をおめでとう</h5>
+            <div class="container text-center">
+              <div class="row row-cols-3">
        {
-
         taskList? 
             taskList.map((task,index)=>{
               if(task.completed === true){
                 return(
-                  <div className='task-content'>
-                    <><i className="fa-regular fa-circle-check"/> </>{task.content}
-                    {/* <span className="replyicon" onClick={()=>{alert('現在工事中です。')}}><i className="fa-solid fa-reply" /></span> */}
+                  <div className="col" key={index}>
+                    <div className="done-col-content">
+                      {task.content}
+                    </div>
                   </div>
+
                 )
               }      
             })
             :
             <></>
           }
+            </div>
+          </div>
     </div>
     )
 }

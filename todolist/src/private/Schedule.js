@@ -114,6 +114,10 @@ const Schedule = () => {
           <div className='sch-btn'>
             <button type="button" class="btn btn-success" onClick={()=> {addSchedule()}}>Save</button>
           </div>
+          {/* <div className='calendar-add-img'>
+            <img src='https://cdn.pixabay.com/photo/2016/04/09/15/07/text-1318200_1280.jpg' alt='text'/>
+            <img src='https://cdn.pixabay.com/photo/2022/02/20/09/34/animal-7024072_1280.png' alt='cute'/>
+          </div> */}
         </div>
       </div>
       <div className="card">

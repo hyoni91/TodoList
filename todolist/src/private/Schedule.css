@@ -125,9 +125,24 @@
 }
 
 .calendar-add-div{
-  width: 50%;
-  margin: auto;
+  width: 100%;
 }
+
+/* .calendar-add-img{
+  height: 30%;
+  width: 80%;
+
+}
+.calendar-add-img > img:first-child{
+  width: 40%;
+  margin-top: 20px;
+  margin-left: 10%;
+}
+.calendar-add-img > img:last-child{
+  width: 20%;
+  margin-left: 90%;
+} */
+
 
 .calendar-add-div > input,
 .calendar-add-div > textarea{
@@ -136,6 +151,7 @@
   border: 1px solid lightgray;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 10px;
+
 }
 
 .calendar-add-div > textarea{
@@ -254,6 +270,10 @@
 
   .react-calendar__tile{
     height: 5vh;
+  }
+  .calendar-wrap > h2{
+    font-weight: 600;
+    font-size: 1.4em;
   }
 
 }
