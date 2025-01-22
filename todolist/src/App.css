@@ -1,25 +1,8 @@
-/* @font-face {
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimGeurimilgiTTF-R.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'PartialSansKR-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-} */
-
-
-
 .private>p{
-  /* font-family: 'PartialSansKR-Regular'; */
   font-size: 18px;
 }
 
 .contailner{
-  /* font-family: 'HakgyoansimGeurimilgiTTF-R'; */
   font-size: 16px;
   width: 98vw;
   height: 100vh;
@@ -33,7 +16,6 @@
 }
 
 .content{
-  /* border: 1px solid blue; */
   width: 72vw;
   padding: 50px;
 }
@@ -76,15 +58,66 @@ h2{
   padding: 5px;
   border-radius: 10px;
   display: inline-block;
-  /* background-color:  lightcoral; */
   color:black;
   font-weight: 900;
 }
 
 .todo-wrap{
-  /* border: 1px solid red; */
   width: 100%;
   height: 100%;
-  /* margin: auto; */
-  /* text-align: center; */
+}
+
+
+
+/* 반응형 스타일 */
+@media screen and (max-width: 768px) {
+  .contailner{
+    font-size: 1em;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
+  
+  .mainbar{
+    background-color: #FCFAF8;
+    width: 30vw;
+    height: 100vh;
+  }
+  
+  .content{
+    width: 65vw;
+    padding: 10px;
+  }
+  
+  .private>p{
+    width: 100%;
+    font-size: 1em;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .contailner{
+    font-size: 0.7em;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
+  
+  .mainbar{
+    background-color: #FCFAF8;
+    width: 30vw;
+    height: 100vh;
+  }
+  
+  .content{
+    width: 66vw;
+    padding: 10px;
+  }
+  
+  .private>p{
+    width: 100%;
+    font-size: 0.8em;
+  }
+
 }

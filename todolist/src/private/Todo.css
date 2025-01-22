@@ -20,7 +20,7 @@
 }
 
 .addTask-div > input{
-    width: 90%;
+    width: 80%;
     padding: 5px;
     border: 1px solid lightgray;
     border-radius: 5px;
@@ -29,6 +29,7 @@
 }
 
 .addTask-div > button{
+    width: 10%;
     margin-left: 10px;
     border: 1px solid lightgray;
 }
@@ -50,5 +51,52 @@
 .todo-button > button{
     margin-top: 35px;
     margin-right: 5px;
+
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    .addTask-div > input{
+        font-size: 1em;
+        width: 60%;
+    }
+
+    .addTask-div > button{
+        width: 20%;
+        margin-left: 10px;
+        border: 1px solid lightgray;
+        font-size: 0.9em;
+    }
+
+    .todo-button > button{
+        width: 50px;
+        font-size: 0.5em;
+    }
+
+    .today-content > span{
+        font-size: 1em;
+        width: 50%;
+    }
+     
+
+}
+
+@media screen and (max-width: 480px) {
+    .addTask-div > input{
+        font-size: 0.8em;
+        width: 60%;
+    }
+
+    .addTask-div > button{
+        width: 20%;
+        margin-left: 10px;
+        border: 1px solid lightgray;
+        font-size: 0.6em;
+    }
+
+    .todo-button > button{
+        width: 50px;
+        font-size: 0.8em;
+    } 
 
 }

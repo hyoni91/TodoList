@@ -171,15 +171,18 @@
 /* 반응형 스타일 */
 @media screen and (max-width: 768px) {
   .react-calendar {
-    width: 100%;
+    width: 95%;
     height: 99%;
     overflow: auto;
-
   }
   .calendar-flex {
     flex-direction: column;
     gap: 10px;
-    
+ 
+  }
+
+  .react-calendar__navigation{
+    font-size: 0.8em;
   }
 
   .calendar-content,
@@ -188,22 +191,43 @@
     height: 99%;
   }
 
-  .calendar-add {
-    top: 95%;
-    left: 95%;
+  .calendar-add-div {
+    margin: 0px;
+    margin-left: 10px;
+    width: 100%;
   }
 
-  .calendar-add i {
-    font-size: 1em;
+  .calendar-add-div > input,
+  .calendar-add-div > textarea{
+    width: 90%;
+  }
+
+  .react-calendar__tile{
+    height: 8vh;
   }
 
 }
 
 @media screen and (max-width: 480px) {
   .react-calendar {
-    width: 90vw;
-    height: 40vh;
+    width: 97%;
+    height: 49%;
   }
+
+.react-calendar__month-view abbr {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.react-calendar__navigation {
+  height: 5vh;
+
+}
+
+.react-calendar__navigation span {
+  font-size: 1em;
+  font-weight: 600;
+
+}
 
   .calendar-flex {
     flex-direction: column;
@@ -212,8 +236,26 @@
 
   .calendar-content,
   .calendar {
-    width: 90vw;
+    width: 100%;
     height: auto;
   }
 
+
+  .calendar-add-div {
+    margin: 0px;
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .calendar-add-div > input,
+  .calendar-add-div > textarea{
+    width: 90%;
+  }
+
+  .react-calendar__tile{
+    height: 5vh;
+  }
+
 }
+
+
